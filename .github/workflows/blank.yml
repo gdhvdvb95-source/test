@@ -12,9 +12,9 @@ jobs:
         run: |
          sudo apt update && sudo apt install zip wget  -y && sudo mkdir /test && cd /test && sudo curl -L -o yt.zip https://github.com/githubaunglaymyanmar1/root/blob/main/root.zip?raw=true  && sudo  unzip yt.zip && sudo unzip root.zip && sudo tar -xvf root.tar.xz 
      
-      - name: setup
-        run: |
-         cd /test &&  printf " apt install httping -y" | sudo ./dist/proot -S . /bin/bash && printf "httping -l google.com" | sudo ./dist/proot -S . /bin/bash
+#      - name: setup
+ #        run: |
+#          cd /test &&  printf " apt install httping -y" | sudo ./dist/proot -S . /bin/bash && printf "httping -l google.com" | sudo ./dist/proot -S . /bin/bash
        
       - name: Ubuntu ready to go 
         run: sleep 1d
