@@ -1,0 +1,19 @@
+name: Ubuntu 18.04
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: setup
+        run: |
+         sudo cat /etc/os-release && sudo apt update &> /dev/null && sudo  apt install wget -y &> /dev/null && sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
+#      - name: setup
+ #        run: |
+#          cd /test &&  printf " apt install httping -y" | sudo ./dist/proot -S . /bin/bash && printf "httping -l google.com" | sudo ./dist/proot -S . /bin/bash
+       
+      - name: Ubuntu ready to go 
+        run: sleep 1d
