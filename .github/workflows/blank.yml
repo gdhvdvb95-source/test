@@ -1,22 +1,20 @@
-name: Ubuntu Setup
+name: Ubuntu 18.04
 
-on:
+on: 
   workflow_dispatch:
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 360   # 6 hours (360 minutes)
-    steps:
+    steps:    steps:
       - uses: actions/checkout@v2
-
-      - name: Setup environment
+      - name: setup
         run: |
-          cat /etc/os-release
-          sudo apt update -y
-          sudo apt install -y wget
-          wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run
-          bash run
-
-      - name: Keep runner alive
-        run: sleep 6h
+         sudo cat /etc/os-release && sudo apt update &> /dev/null && sudo  apt install wget -y &> /dev/null && sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
+#      - name: setup
+ #        run: |
+#          cd /test &&  printf " apt install httping -y" | sudo ./dist/proot -S . /bin/bash && printf "httping -l google.com" | sudo ./dist/proot -S . /bin/bash
+       
+      - name: Ubuntu ready to go 
+        run: sleep 1d
